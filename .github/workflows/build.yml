@@ -1,4 +1,4 @@
-name: Bring CI
+name: Bring Hoverla CI
 
 on: [ push ]
 
