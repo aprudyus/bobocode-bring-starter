@@ -68,6 +68,7 @@ public class ApplicationContextImpl implements ApplicationContext {
     @Override
     public <T> T getBean(Class<T> beanType) {
         Map<String, T> beanMap = getAllBeans(beanType);
+
         if (beanMap.isEmpty()) {
             throw new NoSuchBeanException();
         }
