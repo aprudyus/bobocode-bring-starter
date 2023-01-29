@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class ApplicationContextImpl implements ApplicationContext {
-    private Map<String, Object> beans = new ConcurrentHashMap<>();
+    private final Map<String, Object> beans = new ConcurrentHashMap<>();
 
     public ApplicationContextImpl(String... basePackages) {
         Reflections beanScanner = new Reflections((Object[]) basePackages);
@@ -40,6 +40,7 @@ public class ApplicationContextImpl implements ApplicationContext {
     }
 
     @SneakyThrows
+    @SuppressWarnings("java:S3011")
     private void postProcess() {
         Collection<Object> beanInstances = beans.values();
 
