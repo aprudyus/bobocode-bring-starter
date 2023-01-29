@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
@@ -75,7 +76,7 @@ public class ApplicationContextImpl implements ApplicationContext {
             throw new NoUniqueBeanException();
         }
 
-        return beanMap.values().stream().toList().get(0);
+        return new ArrayList<>(beanMap.values()).get(0);
     }
 
     @Override
